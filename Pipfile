@@ -8,6 +8,9 @@ django = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
+gunicorn = "*"
+dj-database-url = "*"
+python-decouple = "*"
 
 [dev-packages]
 
