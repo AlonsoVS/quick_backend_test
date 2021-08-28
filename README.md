@@ -32,19 +32,20 @@
 
         Configurar base de datos local:
             En quick_backend_test/settings.py
-            DATABASES = {
-                'default': {
-                    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                    'NAME': 'nombre_de_bsae_de_datos',
-                    'USER': 'usuario_de_base_de_datos',
-                    'PASSWORD': 'contraseña_de_base_de_datos',
-                    'HOST': 'localhost',
-                    'PORT': 'puerto_de_base_de_datos',
-                }
-            }
+                    DATABASES = {
+                        'default': {
+                            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                            'NAME': 'nombre_de_bsae_de_datos',
+                            'USER': 'usuario_de_base_de_datos',
+                            'PASSWORD': 'contraseña_de_base_de_datos',
+                            'HOST': 'localhost',
+                            'PORT': 'puerto_de_base_de_datos',
+                        }
+                    }
 
         Configurar clave secreta:
-            SECRET_KEY = "clave_secreta"
+            En quick_backend_test/settings.py:
+                SECRET_KEY = "clave_secreta"
         
         Crear Schemas en base de datos:
             $python manage.py makemigrations
