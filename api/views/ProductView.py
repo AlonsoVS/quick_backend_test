@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from api.serializers.ProductSerializer import ProductSerializer
 from api.models.Product import Product
 from rest_framework import views, status
@@ -5,6 +6,7 @@ from rest_framework.response import Response
 from django.http.response import Http404
 
 class ProductView(views.APIView):
+  permission_classes = (IsAuthenticated,)
   def get_object(self, request, format=None, *args, **kwargs) -> Response:
     id = self.kwargs.get('id')
     try:

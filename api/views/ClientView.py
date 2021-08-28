@@ -1,12 +1,12 @@
+from rest_framework.permissions import IsAuthenticated
 from api.serializers.ClientSerializer import ClientSerializer
 from api.models.Client import Client
 from rest_framework import views, status
 from rest_framework.response import Response
 from django.http import Http404
-from rest_framework.parsers import JSONParser 
-
 
 class ClientView(views.APIView):
+  permission_classes = (IsAuthenticated,)
   def get_object(self, request, format=None, *args, **kwargs) -> Response:
     id = self.kwargs.get('id')
     try:

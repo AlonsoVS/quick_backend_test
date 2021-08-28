@@ -1,10 +1,12 @@
 from django.http.response import Http404
+from rest_framework.permissions import IsAuthenticated
 from api.serializers.BillSerializer import BillSerializer
 from api.models.Bill import Bill
 from rest_framework import views, status
 from rest_framework.response import Response
 
 class BillView(views.APIView):
+  permission_classes = (IsAuthenticated,)
   def get_object(self, request, format=None, *args, **kwargs) -> Response:
     id = self.kwargs.get('id')
     try:
