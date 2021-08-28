@@ -1,6 +1,14 @@
 from pathlib import Path
 from datetime import timedelta
 import os
+import dj_database_url
+from decouple import config
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,17 +58,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'quick_backend_test.wsgi.application'
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'quick_backend_test',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
